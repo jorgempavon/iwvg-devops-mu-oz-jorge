@@ -22,4 +22,6 @@ public class SecurityConfiguration {
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
                 .build();
     }
+
+
 }
