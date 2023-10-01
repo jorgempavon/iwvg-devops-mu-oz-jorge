@@ -1,0 +1,68 @@
+package es.upm.miw.iwvg_devops.code;
+
+public class UserTest {
+    private User user;
+
+    @BeforeEach
+    public void setUp() {
+        user = new User("1", "Jorge", "Muñoz", new ArrayList<>());
+    }
+
+    @Test
+    public void testBuilder(){
+        this.user=new User();
+        assertNotNull(user);
+    }
+    @Test
+    public void testGetId(){
+        assertEquals("1",this.user.getId());
+    }
+    @Test
+    public void testToString(){
+        assertEquals("User{id='1', name='Jorge', familyName='Muñoz', fractions=[]}",this.user.toString());
+    }
+    @Test
+    public void testFullName() {
+        assertEquals("Jorge Muñoz", user.fullName());
+    }
+
+    @Test
+    public void testInitials() {
+        assertEquals("J.", user.initials());
+    }
+
+    @Test
+    public void testAddFraction() {
+        Fraction fraction = new Fraction(1, 2);
+        user.addFraction(fraction);
+
+        List<Fraction> fractions = user.getFractions();
+        assertEquals(1, fractions.size());
+        assertEquals(fraction, fractions.get(0));
+    }
+
+    @Test
+    public void testSetFractions() {
+        List<Fraction> fractions = new ArrayList<>();
+        fractions.add(new Fraction(1, 2));
+        fractions.add(new Fraction(3, 4));
+
+        user.setFractions(fractions);
+
+        assertEquals(fractions, user.getFractions());
+    }
+
+
+
+    @Test
+    public void testSetAndGetName() {
+        user.setName("Jorge");
+        assertEquals("Jorge", user.getName());
+    }
+
+    @Test
+    public void testSetAndGetFamilyName() {
+        user.setFamilyName("Pavon");
+        assertEquals("Pavon", user.getFamilyName());
+    }
+}
