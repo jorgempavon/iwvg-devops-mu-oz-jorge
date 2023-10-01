@@ -4,3 +4,5 @@
 ## Ingeniería Web: Visión General (IWVG) DevOps
 > Este proyecto es una Plantilla de apoyo docente de la asignatura.
 
+![img.png](img.png)
+![img_1.png](img_1.png)
